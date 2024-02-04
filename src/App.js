@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Router, Routes } from 'react-router-dom';
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import Signin from './components/Signin';
+import Navbar from './components/Navbar';
+import Main from './components/Main';
+import HarassmentComplaintForm from './components/HarassmentComplaintForm';
+import DonateSection from './components/DonateSection';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Navbar/>
+    
+    <Routes>      
+    <Route path="/" exact element={<Main/>} />
+        <Route path="/login" element={    <Signin/>} /> 
+        <Route path="/complain" element={    <HarassmentComplaintForm/>} /> 
+        <Route path="/donate" element={<DonateSection/>} />
+      </Routes>
     </div>
   );
 }
